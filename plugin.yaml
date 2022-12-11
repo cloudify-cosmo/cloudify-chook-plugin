@@ -1,0 +1,16 @@
+plugins:
+  chook_plugin:
+    executor: central_deployment_agent
+    package_name: cloudify-chook-plugin
+    package_version: '1.0.0'
+
+workflows:
+
+  plugin_invoker:
+    mapping: chook_plugin.cloudify_chook.tasks.plugin_invoker
+    parameters:
+      inputs:
+        description: >
+          Inputs for hook, e.g: deployment_id, workflow_id. Automaticly passed from
+          cloudify hooks: https://docs.cloudify.co/latest/working_with/manager/actionable-events/
+        default: {}
